@@ -16,8 +16,8 @@
 - [x] Create design tokens file (`src/styles/tokens.css`)
 - [x] Create `src/types/` base type definitions
 - [x] Create `src/config/` config files (game, scoring, levels, achievements, theme)
-- [x] Create `mobile-app/README.md` placeholder
-- [x] Create root `n-queens-game/README.md`
+- [x] Create `mobile-app/readme.md` placeholder
+- [x] Create root `n-queens-game/readme.md`
 - [x] Create docs skeleton (all 14 files listed in Section 12)
 
 ## Phase 2: Core Logic (Section 16, Step 2)
@@ -59,7 +59,7 @@
 - [ ] `Ribbon` (banner) component
 - [ ] `Tile` component
 - [ ] `/styleguide` route rendering every component & variant
-- [ ] `docs/COMPONENTS.md` with props & examples for each
+- [ ] `docs/components.md` with props & examples for each
 
 ## Phase 4: Board & Gameplay (Section 16, Step 4)
 
@@ -131,20 +131,20 @@
 
 ## Phase 10: Documentation Pass (Section 16, Step 10)
 
-- [x] `docs/README.md` — Index, summary, quick start
-- [x] `docs/OVERVIEW.md` — Game rules, modes, features
-- [x] `docs/ARCHITECTURE.md` — Folder structure, layering, data flow
-- [x] `docs/ALGORITHMS.md` — Deep dive: backtracking, bitmask, hints, complexity
-- [x] `docs/GAME_LOGIC.md` — State machine, move model, scoring, stars, hints
-- [x] `docs/DESIGN_SYSTEM.md` — Tokens, palette, typography, button anatomy, animations
-- [x] `docs/COMPONENTS.md` — UI primitives with props & usage
-- [x] `docs/STATE_AND_STORAGE.md` — Zustand slices, storage adapter, schema versioning
-- [x] `docs/CONFIGURATION.md` — Config files, how to rebalance
-- [x] `docs/TESTING.md` — How to run, coverage, how to add tests
-- [x] `docs/CONTRIBUTING.md` — Standards, how to add levels/modes/themes
-- [x] `docs/ROADMAP.md` — Phase 2 & 3 plans
-- [x] `docs/DECISIONS.md` — Decision log with reasoning
-- [x] `docs/BACKEND_SPEC.md` — V2 data models, API, auth, WebSocket, anti-cheat
+- [x] `docs/readme.md` — Index, summary, quick start
+- [x] `docs/overview.md` — Game rules, modes, features
+- [x] `docs/architecture.md` — Folder structure, layering, data flow
+- [x] `docs/algorithms.md` — Deep dive: backtracking, bitmask, hints, complexity
+- [x] `docs/game_logic.md` — State machine, move model, scoring, stars, hints
+- [x] `docs/design_system.md` — Tokens, palette, typography, button anatomy, animations
+- [x] `docs/components.md` — UI primitives with props & usage
+- [x] `docs/state_and_storage.md` — Zustand slices, storage adapter, schema versioning
+- [x] `docs/configuration.md` — Config files, how to rebalance
+- [x] `docs/testing.md` — How to run, coverage, how to add tests
+- [x] `docs/contributing.md` — Standards, how to add levels/modes/themes
+- [x] `docs/roadmap.md` — Phase 2 & 3 plans
+- [x] `docs/decisions.md` — Decision log with reasoning
+- [x] `docs/backend_spec.md` — V2 data models, API, auth, WebSocket, anti-cheat
 
 ## Phase 11: Final QA (Section 16, Step 11)
 

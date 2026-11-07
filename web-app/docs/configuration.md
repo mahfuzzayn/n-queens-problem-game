@@ -250,7 +250,7 @@ export const ACHIEVEMENTS: readonly AchievementConfig[] = [
 
 ## theme.tokens.ts
 
-Defines design tokens consumed by Tailwind CSS and component styling. See [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) for full documentation of the color palette, typography, and button anatomy.
+Defines design tokens consumed by Tailwind CSS and component styling. See [design_system.md](./design_system.md) for full documentation of the color palette, typography, and button anatomy.
 
 ```typescript
 /** Placeholder — actual implementation in src/config/theme.tokens.ts */
@@ -281,7 +281,7 @@ export interface ThemeTokens {
 }
 
 export const defaultTheme: ThemeTokens = {
-  // See DESIGN_SYSTEM.md for full token values
+  // See design_system.md for full token values
   // Placeholder — will be implemented with actual values
 } as unknown as ThemeTokens;
 ```

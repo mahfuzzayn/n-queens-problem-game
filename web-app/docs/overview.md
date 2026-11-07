@@ -36,7 +36,7 @@ The problem is a foundational exercise in constraint satisfaction, backtracking 
 3. **Conflict Feedback:** When two or more queens conflict, the conflicting queens and their attack lines are highlighted in real-time.
 4. **Win Condition:** All N queens are placed with zero conflicts.
 5. **Lose Condition (Time Attack only):** The countdown timer reaches zero before a valid solution is found.
-6. **Scoring:** Points are awarded based on board size, time taken, number of hints used, and number of moves made. See [GAME_LOGIC.md](./GAME_LOGIC.md) for the full scoring formula.
+6. **Scoring:** Points are awarded based on board size, time taken, number of hints used, and number of moves made. See [game_logic.md](./game_logic.md) for the full scoring formula.
 
 ---
 

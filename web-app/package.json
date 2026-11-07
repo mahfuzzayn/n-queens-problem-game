@@ -12,10 +12,13 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@next/swc-linux-x64-gnu": "^16.4.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^14.10.1",
     "howler": "^2.2.4",
+    "motion-dom": "^14.10.1",
+    "motion-utils": "^14.7.0",
     "next": "16.4.5",
     "react": "19.3.0",
     "react-dom": "19.3.0",
@@ -24,7 +27,7 @@
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
     "@types/howler": "^2.2.13",
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

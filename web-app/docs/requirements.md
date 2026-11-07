@@ -1,6 +1,6 @@
 # N-Queens Game: Master Requirements and Build Prompt
 
-> **How to use this file:** Paste this whole document into Antigravity as the project brief. You (the AI agent) are the lead engineer and designer. Read it fully, then build **Phase 1 (Web App)** exactly as specified. Follow the build order in Section 16, and do not skip the docs (Section 12). Where this document leaves a decision open, make the best decision yourself and record it in `docs/DECISIONS.md`.
+> **How to use this file:** Paste this whole document into Antigravity as the project brief. You (the AI agent) are the lead engineer and designer. Read it fully, then build **Phase 1 (Web App)** exactly as specified. Follow the build order in Section 16, and do not skip the docs (Section 12). Where this document leaves a decision open, make the best decision yourself and record it in `docs/decisions.md`.
 
 ---
 
@@ -28,7 +28,7 @@ Create everything inside a root folder named **`n-queens-game/`**:
 
 ```
 n-queens-game/
-├── README.md                 # Root overview + how to run each app
+├── readme.md                 # Root overview + how to run each app
 ├── web-app/                  # Next.js application (Phase 1, build now)
 │   ├── docs/                 # All documentation lives HERE (see Section 12)
 │   ├── src/
@@ -45,7 +45,7 @@ n-queens-game/
 │   ├── public/               # Assets (sounds, images, fonts)
 │   └── package.json
 └── mobile-app/               # React Native app (Phase 2). Create only a placeholder README now.
-    └── README.md             # States the plan: reuse core/ logic, Expo, same design language
+    └── readme.md             # States the plan: reuse core/ logic, Expo, same design language
 ```
 
 **Rule:** `web-app/src/core/` must be portable. It will later be copied or shared with `mobile-app/`. It must not import from React, Next.js, or the browser (`window`, `document`, `localStorage`).
@@ -130,7 +130,7 @@ n-queens-game/
 10. **Learn Page (optional but nice):** short explainer of the N-Queens problem and a link into `docs/`.
 
 ### 5.4 Reusable UI primitives to build in `components/ui/` (game-themed)
-`GameButton` (variants: primary, secondary, danger, gold, ghost; sizes; icon support; loading), `GamePanel`, `GameModal`, `GameBadge`, `StarRating`, `ProgressBar`, `StatChip`, `IconButton`, `Toggle`, `Stepper`, `Toast`, `Tabs`, `Tooltip`, `Ribbon` (banner), `Tile`. Each documented with props and an example in `docs/COMPONENTS.md`. Include a hidden **`/styleguide`** route that renders every component and variant for visual QA.
+`GameButton` (variants: primary, secondary, danger, gold, ghost; sizes; icon support; loading), `GamePanel`, `GameModal`, `GameBadge`, `StarRating`, `ProgressBar`, `StatChip`, `IconButton`, `Toggle`, `Stepper`, `Toast`, `Tabs`, `Tooltip`, `Ribbon` (banner), `Tile`. Each documented with props and an example in `docs/components.md`. Include a hidden **`/styleguide`** route that renders every component and variant for visual QA.
 
 ### 5.5 Feel and polish
 - **Sound effects:** tap, place queen, remove queen, conflict, hint, win, lose, button click, star earned. Optional background music. Mute toggles persist.
@@ -202,7 +202,7 @@ Game logic is **never** inside components. Components call actions; actions call
 
 ## 8. Algorithms (Heart of the Project)
 
-All in `src/core/`, pure TypeScript, unit-tested, and **thoroughly explained in `docs/ALGORITHMS.md`**.
+All in `src/core/`, pure TypeScript, unit-tested, and **thoroughly explained in `docs/algorithms.md`**.
 
 ### 8.1 Board representation
 - `queens: number[]`, where `queens[row] = col` or `-1` if empty (a compact one-queen-per-row model for the solver).
@@ -292,30 +292,30 @@ The docs must let a **new developer fully understand and safely modify** the pro
 
 | File | Contents |
 |---|---|
-| `docs/README.md` | Index of all docs; one-paragraph project summary; quick start |
-| `docs/OVERVIEW.md` | What the game is, rules, modes, feature list, screenshots placeholder |
-| `docs/ARCHITECTURE.md` | Folder structure, layering (UI → hooks → store → core → services), data flow diagram, why `core/` is pure, how Phase 2 (mobile) and Phase 3 (online) plug in |
-| `docs/ALGORITHMS.md` | **Deep dive:** the N-Queens problem, backtracking walkthrough on a 4×4 with step-by-step diagrams, conflict-detection counters (diagonal index math: `r+c` and `r-c+N-1`), bitmask solver explained line by line, solution counting, hint engine decision tree, daily puzzle seeding, complexity analysis, and "how to change or extend the solver" |
-| `docs/GAME_LOGIC.md` | State machine of a game (`idle → playing → paused → won/lost`), move/undo/redo model, timer behavior, scoring formula with worked examples, star rules, hint tiers |
-| `docs/DESIGN_SYSTEM.md` | Design philosophy, tokens, color palette, typography, button anatomy (outline + face + shine + bottom edge), animation guidelines, how to create a new theme |
-| `docs/COMPONENTS.md` | Every UI primitive: props, variants, usage example |
-| `docs/STATE_AND_STORAGE.md` | Zustand slices, storage adapter, repositories, schema versioning and migrations |
-| `docs/CONFIGURATION.md` | Every config file and what each value changes (a "how to rebalance the game" guide) |
-| `docs/TESTING.md` | How to run tests, what is covered, how to add tests |
-| `docs/CONTRIBUTING.md` | Coding standards, how to add a new level, game mode, achievement, theme, or board variant (step by step) |
-| `docs/ROADMAP.md` | Phase 2 (React Native) and Phase 3 (online) plans, risks, and open questions |
-| `docs/DECISIONS.md` | A log of every design and tech decision the agent made, with reasoning |
-| `docs/BACKEND_SPEC.md` | **Forward-looking spec** for V2: proposed data models (User, Score, Match, Challenge), API endpoints, auth approach, realtime strategy (WebSocket), anti-cheat notes (server-side solution validation, time sanity checks) |
+| `docs/readme.md` | Index of all docs; one-paragraph project summary; quick start |
+| `docs/overview.md` | What the game is, rules, modes, feature list, screenshots placeholder |
+| `docs/architecture.md` | Folder structure, layering (UI → hooks → store → core → services), data flow diagram, why `core/` is pure, how Phase 2 (mobile) and Phase 3 (online) plug in |
+| `docs/algorithms.md` | **Deep dive:** the N-Queens problem, backtracking walkthrough on a 4×4 with step-by-step diagrams, conflict-detection counters (diagonal index math: `r+c` and `r-c+N-1`), bitmask solver explained line by line, solution counting, hint engine decision tree, daily puzzle seeding, complexity analysis, and "how to change or extend the solver" |
+| `docs/game_logic.md` | State machine of a game (`idle → playing → paused → won/lost`), move/undo/redo model, timer behavior, scoring formula with worked examples, star rules, hint tiers |
+| `docs/design_system.md` | Design philosophy, tokens, color palette, typography, button anatomy (outline + face + shine + bottom edge), animation guidelines, how to create a new theme |
+| `docs/components.md` | Every UI primitive: props, variants, usage example |
+| `docs/state_and_storage.md` | Zustand slices, storage adapter, repositories, schema versioning and migrations |
+| `docs/configuration.md` | Every config file and what each value changes (a "how to rebalance the game" guide) |
+| `docs/testing.md` | How to run tests, what is covered, how to add tests |
+| `docs/contributing.md` | Coding standards, how to add a new level, game mode, achievement, theme, or board variant (step by step) |
+| `docs/roadmap.md` | Phase 2 (React Native) and Phase 3 (online) plans, risks, and open questions |
+| `docs/decisions.md` | A log of every design and tech decision the agent made, with reasoning |
+| `docs/backend_spec.md` | **Forward-looking spec** for V2: proposed data models (User, Score, Match, Challenge), API endpoints, auth approach, realtime strategy (WebSocket), anti-cheat notes (server-side solution validation, time sanity checks) |
 
-Also add a top-level `n-queens-game/README.md` with: what this is, repo layout, how to run the web app (`npm install`, `npm run dev`, `npm test`), and links to `web-app/docs/`.
+Also add a top-level `n-queens-game/readme.md` with: what this is, repo layout, how to run the web app (`npm install`, `npm run dev`, `npm test`), and links to `web-app/docs/`.
 
 ---
 
 ## 13. Phase 2 Preview: Mobile App (do NOT build now)
 
-Only create `mobile-app/README.md` describing the plan:
+Only create `mobile-app/readme.md` describing the plan:
 - **React Native with Expo + TypeScript.**
-- Reuse `core/` and `config/` unchanged (consider a shared package, or copy with a sync script, and document the chosen approach in `DECISIONS.md`).
+- Reuse `core/` and `config/` unchanged (consider a shared package, or copy with a sync script, and document the chosen approach in `decisions.md`).
 - Replace Web Audio with `expo-av`, vibration with `expo-haptics`, `localStorage` with `AsyncStorage`, Framer Motion with `react-native-reanimated`.
 - Recreate the same design language with native components (Skia or SVG for queens and bevels).
 
@@ -329,7 +329,7 @@ Future features: user accounts, global and friends leaderboards, daily-puzzle ra
 - Repository interfaces (Section 9) so a network implementation can be dropped in.
 - Keeping `GameResult` a serializable, self-contained type: `{ n, mode, queens[], timeMs, moves, hintsUsed, score, date, levelId?, seed? }`.
 - Making puzzles reproducible from a **`seed` + `config`** so two players can get the identical board.
-- Documenting everything in `docs/BACKEND_SPEC.md`.
+- Documenting everything in `docs/backend_spec.md`.
 
 ---
 
@@ -387,10 +387,10 @@ Work in small steps, run tests as you go, and keep the app runnable at every sta
 
 ## 18. Instructions to the Agent: Behavior and Rules
 
-1. **Do not ask me design questions.** Make strong, opinionated choices and log them in `docs/DECISIONS.md`.
+1. **Do not ask me design questions.** Make strong, opinionated choices and log them in `docs/decisions.md`.
 2. **Prioritize the game feel.** If forced to choose between more features and a polished core experience, polish the core.
 3. **Keep code clean and commented.** Prefer clarity over cleverness (except in the bitmask solver, where you must explain the cleverness in comments and docs).
-4. **Do not leave placeholders** like "TODO: implement" in delivered features. If something is intentionally deferred, list it in `docs/ROADMAP.md`.
+4. **Do not leave placeholders** like "TODO: implement" in delivered features. If something is intentionally deferred, list it in `docs/roadmap.md`.
 5. **Write the docs as you build,** not only at the end, and keep them in sync with the final code.
 6. **Test the algorithms** before building UI on top of them.
 7. **Never put game logic in React components.**

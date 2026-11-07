@@ -316,7 +316,7 @@ Player requests a hint
 2. Choose the row with the **fewest** valid columns (most constrained) — this gives the most useful hint.
 3. For Tier 1, highlight just the row. For Tier 2, highlight the row and column. For Tier 3, show the exact cell.
 
-See [GAME_LOGIC.md](./GAME_LOGIC.md) for hint costs and scoring penalties.
+See [game_logic.md](./game_logic.md) for hint costs and scoring penalties.
 
 ---
 

@@ -53,7 +53,7 @@ The application state is managed by a single Zustand store composed of multiple 
 - Compatible with React 19 concurrent features
 - No context providers needed (reduces React tree depth)
 
-See [DECISIONS.md](./DECISIONS.md) for the full comparison with alternatives.
+See [decisions.md](./decisions.md) for the full comparison with alternatives.
 
 ---
 

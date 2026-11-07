@@ -164,7 +164,7 @@ The `core/` directory contains **zero** React, Next.js, or browser API imports. 
 4. **Refactorability:** The UI framework can be swapped (e.g., from Next.js to Remix or Astro) without touching any game logic.
 
 > [!IMPORTANT]
-> **Enforcement:** Any PR that adds a React, Next.js, or browser import to a file in `core/` must be rejected. This constraint is documented in [CONTRIBUTING.md](./CONTRIBUTING.md) and will be enforced by lint rules.
+> **Enforcement:** Any PR that adds a React, Next.js, or browser import to a file in `core/` must be rejected. This constraint is documented in [contributing.md](./contributing.md) and will be enforced by lint rules.
 
 ---
 
@@ -236,7 +236,7 @@ Replaced in mobile:
 ```
 
 > [!NOTE]
-> The exact code sharing mechanism (npm workspace, symlink, or copy) will be decided when Phase 2 begins. See [ROADMAP.md](./ROADMAP.md) for the timeline.
+> The exact code sharing mechanism (npm workspace, symlink, or copy) will be decided when Phase 2 begins. See [roadmap.md](./roadmap.md) for the timeline.
 
 ---
 
@@ -250,4 +250,4 @@ Phase 3 adds online features. The architecture is designed with these extension 
 4. **Replay validation:** Because all game logic is pure and deterministic, a sequence of moves can be replayed server-side to verify scores (anti-cheat).
 5. **WebSocket integration:** The store layer can subscribe to WebSocket events for real-time features (live leaderboards, head-to-head matches).
 
-See [BACKEND_SPEC.md](./BACKEND_SPEC.md) for the full V2 backend specification.
+See [backend_spec.md](./backend_spec.md) for the full V2 backend specification.

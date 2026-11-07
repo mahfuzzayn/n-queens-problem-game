@@ -119,8 +119,8 @@ Adding a new game mode touches multiple layers. Follow this checklist:
    - Component smoke tests.
 
 6. **Update documentation:**
-   - Add the mode to [OVERVIEW.md](./OVERVIEW.md).
-   - Document any new scoring rules in [GAME_LOGIC.md](./GAME_LOGIC.md).
+   - Add the mode to [overview.md](./overview.md).
+   - Document any new scoring rules in [game_logic.md](./game_logic.md).
 
 ---
 
@@ -172,7 +172,7 @@ Adding a new game mode touches multiple layers. Follow this checklist:
 
 4. **Test** the theme across all screens for contrast and readability.
 
-5. **Update** [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) with the new theme's color values.
+5. **Update** [design_system.md](./design_system.md) with the new theme's color values.
 
 ---
 

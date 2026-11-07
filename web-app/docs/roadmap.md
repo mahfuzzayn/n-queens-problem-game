@@ -115,7 +115,7 @@ Online features, multiplayer, and dynamic content.
 
 ### Technical Requirements
 
-- Backend API (see [BACKEND_SPEC.md](./BACKEND_SPEC.md))
+- Backend API (see [backend_spec.md](./backend_spec.md))
 - WebSocket server for real-time features
 - PostgreSQL database
 - Authentication provider (OAuth2)

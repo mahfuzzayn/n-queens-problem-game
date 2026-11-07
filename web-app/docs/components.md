@@ -43,7 +43,7 @@ All components follow these conventions:
 
 ### GameButton
 
-The primary interactive button component with the 3D beveled style described in [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md#button-anatomy).
+The primary interactive button component with the 3D beveled style described in [design_system.md](./design_system.md#button-anatomy).
 
 **Props:**
 

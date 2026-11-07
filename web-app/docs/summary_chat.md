@@ -44,7 +44,7 @@
 
 6. **Documentation & QA:**
    - Created all 14 mandatory documentation files in `web-app/n-queens-problem-game/docs/`.
-   - Created root `README.md` and `mobile-app/README.md`.
+   - Created root `readme.md` and `mobile-app/readme.md`.
    - Verified clean typecheck (`npx tsc --noEmit`), test passes (`npm test`), and production build (`npm run build`).
 
 **Current phase:** Phase 3/4 Complete, entering Phase 7 (Screens & Modes Expansion: Campaign Map, Daily Puzzle UI, Settings Screen, "Prove Impossible" interactive mode).
@@ -57,4 +57,4 @@
 
 **Known issues:** None. Build and tests pass with 0 errors.
 
-**Key decisions made:** Recorded in `docs/DECISIONS.md`.
+**Key decisions made:** Recorded in `docs/decisions.md`.

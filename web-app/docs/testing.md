@@ -18,7 +18,7 @@
 
 ## Overview
 
-The N-Queens Puzzle Game uses **Vitest** as its test runner. Vitest was chosen for its Vite-native integration, fast execution, ESM support, and TypeScript compatibility out of the box. See [DECISIONS.md](./DECISIONS.md) for the full comparison with Jest.
+The N-Queens Puzzle Game uses **Vitest** as its test runner. Vitest was chosen for its Vite-native integration, fast execution, ESM support, and TypeScript compatibility out of the box. See [decisions.md](./decisions.md) for the full comparison with Jest.
 
 **Testing philosophy:**
 - **Core logic gets the most coverage.** The `core/` directory contains pure functions that are easy to test and critical to correctness. Target: **>90% coverage**.
