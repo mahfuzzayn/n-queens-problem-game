@@ -1,0 +1,125 @@
+/* ==========================================================
+   N-Queens Game — Design Tokens
+   A rich, saturated "Cartoon Fantasy" game palette.
+   These CSS variables power the entire visual theme.
+   To create a new theme, override these variables.
+   ========================================================== */
+
+:root {
+  /* ---- Backgrounds ---- */
+  --color-bg-primary: #1a1040;
+  --color-bg-secondary: #2d1b69;
+  --color-bg-tertiary: #3d2b7a;
+  --color-bg-surface: #4a3a8a;
+
+  /* ---- Board ---- */
+  --color-board-light: #e8d5b0;
+  --color-board-dark: #b8956a;
+  --color-board-frame: #5c3d1e;
+  --color-board-frame-highlight: #8b6914;
+
+  /* ---- Actions ---- */
+  --color-primary: #4CAF50;
+  --color-primary-hover: #45a049;
+  --color-primary-dark: #2e7d32;
+  --color-secondary: #2196F3;
+  --color-secondary-hover: #1e88e5;
+  --color-danger: #f44336;
+  --color-danger-hover: #e53935;
+  --color-warning: #FF9800;
+  --color-warning-hover: #f57c00;
+
+  /* ---- Rewards ---- */
+  --color-gold: #FFD700;
+  --color-gold-dark: #B8860B;
+  --color-gold-light: #FFF176;
+
+  /* ---- Text ---- */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #c4b5e3;
+  --color-text-dark: #1a1040;
+  --color-text-muted: #8b7db5;
+
+  /* ---- Status ---- */
+  --color-success: #4CAF50;
+  --color-error: #f44336;
+  --color-info: #2196F3;
+
+  /* ---- Queen ---- */
+  --color-queen-gold: #FFD700;
+  --color-queen-outline: #8B6914;
+  --color-queen-conflict: #ff4444;
+
+  /* ---- UI ---- */
+  --color-overlay: rgba(0, 0, 0, 0.7);
+  --color-shimmer: rgba(255, 255, 255, 0.15);
+
+  /* ---- Typography ---- */
+  --font-display: 'Lilita One', cursive;
+  --font-body: 'Nunito', sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 4rem;
+
+  /* ---- Spacing ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* ---- Border Radius ---- */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* ---- Shadows ---- */
+  --shadow-button: 0 4px 0 0 rgba(0, 0, 0, 0.3);
+  --shadow-button-pressed: 0 2px 0 0 rgba(0, 0, 0, 0.3);
+  --shadow-panel: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 20px rgba(255, 215, 0, 0.5);
+  --shadow-text: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.3);
+
+  /* ---- Borders ---- */
+  --border-thick: 3px solid;
+  --border-medium: 2px solid;
+
+  /* ---- Transitions ---- */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+  --transition-bounce: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ---- Z-Index ---- */
+  --z-board: 1;
+  --z-queen: 10;
+  --z-hud: 20;
+  --z-modal-backdrop: 90;
+  --z-modal: 100;
+  --z-toast: 110;
+  --z-tooltip: 120;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-normal: 0ms;
+    --transition-slow: 0ms;
+    --transition-bounce: 0ms;
+  }
+}
