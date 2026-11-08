@@ -13,7 +13,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
   const { settings, updateSettings } = useGameStore();
 
   return (
-    <GameModal isOpen={isOpen} onClose={onClose} title="⚙️ Settings">
+    <GameModal isOpen={isOpen} onClose={onClose} title="Settings">
       <div className="flex flex-col gap-2 mt-2">
         <Toggle
           label="Sound Effects"

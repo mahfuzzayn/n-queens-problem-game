@@ -8,8 +8,12 @@ import { ActionBar } from '@/components/game/ActionBar';
 import { ResultModal } from '@/components/game/ResultModal';
 import { SettingsModal } from '@/components/game/SettingsModal';
 import { ImpossibleModal } from '@/components/game/ImpossibleModal';
+import { RewardedAdModal } from '@/components/game/RewardedAdModal';
+import { SplashScreen } from '@/components/game/SplashScreen';
 import { GameButton } from '@/components/ui/GameButton';
 import { GameBadge } from '@/components/ui/GameBadge';
+import { GameLogo } from '@/components/ui/GameLogo';
+import { GameIcon } from '@/components/ui/GameIcon';
 import { GAME_CONFIG } from '@/config/game.config';
 import { generateDailyPuzzle } from '@/core';
 
@@ -27,11 +31,14 @@ export default function Home() {
 
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [impossibleN, setImpossibleN] = useState<2 | 3 | null>(null);
+  const [showSplash, setShowSplash] = useState(true);
 
   // Initialize once
   useEffect(() => {
     loadPersistedData();
     initGame({ n: 8, mode: 'classic' });
+    const timer = setTimeout(() => setShowSplash(false), 1400);
+    return () => clearTimeout(timer);
   }, [initGame, loadPersistedData]);
 
   // Game clock interval
@@ -63,21 +70,25 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#160c2b] text-white select-none">
+    <>
+      {showSplash && <SplashScreen onFinish={() => setShowSplash(false)} />}
+      <div className="min-h-screen flex flex-col bg-[#160c2b] text-white select-none">
       {/* Top Header */}
       <header className="p-3 sm:p-4 flex flex-wrap items-center justify-between gap-3 border-b border-[#301c5c] bg-[#1d1038]">
         <div className="flex items-center gap-3">
-          <span className="text-3xl filter drop-shadow-[0_2px_4px_rgba(255,215,0,0.4)]">👑</span>
+          <GameLogo size={42} />
           <div>
             <h1 className="text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-500 tracking-wider">
               N-QUEENS
             </h1>
             <div className="flex items-center gap-2 mt-0.5">
-              <GameBadge variant="gold" size="sm">
-                🪙 {profile.coins}
+              <GameBadge variant="gold" size="sm" className="flex items-center gap-1">
+                <GameIcon name="coin" size={13} color="#f59e0b" />
+                <span>{profile.coins}</span>
               </GameBadge>
-              <GameBadge variant="purple" size="sm">
-                LVL {profile.level}
+              <GameBadge variant="purple" size="sm" className="flex items-center gap-1">
+                <GameIcon name="shield" size={13} color="#c084fc" />
+                <span>LVL {profile.level}</span>
               </GameBadge>
             </div>
           </div>
@@ -89,8 +100,10 @@ export default function Home() {
             variant="gold"
             size="sm"
             onClick={handleStartDaily}
+            className="flex items-center gap-1.5"
           >
-            📅 Daily
+            <GameIcon name="calendar" size={14} color="#78350f" />
+            <span>Daily</span>
           </GameButton>
 
           <GameButton
@@ -98,8 +111,9 @@ export default function Home() {
             size="sm"
             onClick={() => setIsSettingsOpen(true)}
             aria-label="Settings"
+            className="p-2"
           >
-            ⚙️
+            <GameIcon name="settings" size={18} color="#e2e8f0" />
           </GameButton>
         </div>
       </header>
@@ -109,15 +123,17 @@ export default function Home() {
         {/* Impossible edge-case buttons */}
         <button
           onClick={() => handleStartGame(2)}
-          className="px-2.5 py-1 text-xs font-bold rounded-xl border border-rose-500/30 bg-rose-950/40 text-rose-300 hover:bg-rose-900/60 transition-colors"
+          className="flex items-center gap-1 px-2.5 py-1 text-xs font-bold rounded-xl border border-rose-500/30 bg-rose-950/40 text-rose-300 hover:bg-rose-900/60 transition-colors"
         >
-          2×2 ☠️
+          <span>2×2</span>
+          <GameIcon name="skull" size={11} color="#f43f5e" />
         </button>
         <button
           onClick={() => handleStartGame(3)}
-          className="px-2.5 py-1 text-xs font-bold rounded-xl border border-rose-500/30 bg-rose-950/40 text-rose-300 hover:bg-rose-900/60 transition-colors"
+          className="flex items-center gap-1 px-2.5 py-1 text-xs font-bold rounded-xl border border-rose-500/30 bg-rose-950/40 text-rose-300 hover:bg-rose-900/60 transition-colors"
         >
-          3×3 ☠️
+          <span>3×3</span>
+          <GameIcon name="skull" size={11} color="#f43f5e" />
         </button>
 
         {GAME_CONFIG.presetSizes.map((size) => (
@@ -142,8 +158,9 @@ export default function Home() {
 
         {/* Hint banner if active */}
         {currentHint && (
-          <div className="w-full max-w-[min(90vw,540px)] p-2.5 bg-amber-500/20 border-2 border-amber-400/50 rounded-xl text-center text-amber-200 text-xs sm:text-sm font-semibold animate-pulse">
-            💡 {currentHint.message}
+          <div className="flex items-center justify-center gap-2 w-full max-w-[min(90vw,540px)] p-2.5 bg-amber-500/20 border-2 border-amber-400/50 rounded-xl text-center text-amber-200 text-xs sm:text-sm font-semibold animate-pulse">
+            <GameIcon name="hint" size={16} color="#fbbf24" />
+            <span>{currentHint.message}</span>
           </div>
         )}
 
@@ -167,6 +184,8 @@ export default function Home() {
           onClose={() => setImpossibleN(null)}
         />
       )}
+      <RewardedAdModal />
     </div>
+    </>
   );
 }

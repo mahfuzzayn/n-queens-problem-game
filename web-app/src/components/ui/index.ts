@@ -10,3 +10,6 @@ export * from './Toggle';
 export * from './Stepper';
 export * from './Ribbon';
 export * from './Tabs';
+export * from './GameLogo';
+export * from './GameIcon';
+export * from './Slider';

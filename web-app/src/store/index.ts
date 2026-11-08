@@ -29,6 +29,7 @@ import {
   buildGameResult,
 } from '@/core';
 import { checkGameAchievements } from '@/core/achievements';
+import { SHOETIC_AD_CONFIG } from '@/config/ads.config';
 import { progressRepo, settingsRepo, gameSaveRepo, DEFAULT_SETTINGS, DEFAULT_PROFILE } from '@/services/repositories';
 import { audioService, hapticsService } from '@/services/audio';
 
@@ -50,6 +51,8 @@ interface GameState {
   moveHistory: Move[];
   redoStack: Move[];
   currentHint: HintResult | null;
+  adHintsClaimed: number;
+  isAdModalOpen: boolean;
   activeLevelId?: string;
   seed?: number;
   lastResult: GameResult | null;
@@ -73,6 +76,9 @@ interface GameState {
   toggleQueen: (pos: Position) => void;
   requestHint: (tier?: 1 | 2 | 3) => void;
   clearHint: () => void;
+  openAdModal: () => void;
+  closeAdModal: () => void;
+  claimRewardedHint: () => void;
   undo: () => void;
   redo: () => void;
   resetGame: () => void;
@@ -103,6 +109,8 @@ export const useGameStore = create<GameState>((set, get) => ({
   moveHistory: [],
   redoStack: [],
   currentHint: null,
+  adHintsClaimed: 0,
+  isAdModalOpen: false,
   activeLevelId: undefined,
   seed: undefined,
   lastResult: null,
@@ -133,6 +141,8 @@ export const useGameStore = create<GameState>((set, get) => ({
       moveHistory: [],
       redoStack: [],
       currentHint: null,
+  adHintsClaimed: 0,
+  isAdModalOpen: false,
       activeLevelId: levelId,
       seed,
       lastResult: null,
@@ -255,6 +265,20 @@ export const useGameStore = create<GameState>((set, get) => ({
     const state = get();
     if (state.status !== 'playing') return;
 
+    // Hint blocking: user must make a move first before asking for another hint!
+    // Repeated clicks must not decrease hint count or show the same hint again.
+    if (state.currentHint !== null) return;
+
+    // Hints budget: 3 free hints + rewarded ad hints
+    const maxFreeHints = 3;
+    const totalAllowed = maxFreeHints + state.adHintsClaimed;
+    if (state.hintsUsed >= totalAllowed) {
+      if (state.adHintsClaimed < SHOETIC_AD_CONFIG.maxRewardedHintsPerMatch) {
+        set({ isAdModalOpen: true });
+      }
+      return;
+    }
+
     audioService.playHint();
     const hint = getHint(state.n, state.queens, tier, state.blockedCells);
 
@@ -270,6 +294,21 @@ export const useGameStore = create<GameState>((set, get) => ({
   },
 
   clearHint: () => set({ currentHint: null }),
+
+  openAdModal: () => set({ isAdModalOpen: true }),
+  closeAdModal: () => set({ isAdModalOpen: false }),
+
+  claimRewardedHint: () => {
+    const state = get();
+    if (state.adHintsClaimed >= SHOETIC_AD_CONFIG.maxRewardedHintsPerMatch) return;
+    set({
+      adHintsClaimed: state.adHintsClaimed + 1,
+      isAdModalOpen: false,
+      currentHint: null,
+    });
+    // Now request the newly unlocked hint
+    get().requestHint(2);
+  },
 
   undo: () => {
     const state = get();

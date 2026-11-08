@@ -15,13 +15,13 @@ const STORAGE_KEYS = {
   SAVED_GAME: 'nq_saved_game',
 } as const;
 
-export const CURRENT_SCHEMA_VERSION = 1;
+export const CURRENT_SCHEMA_VERSION = 2;
 
 export const DEFAULT_SETTINGS: GameSettings = {
   soundEnabled: true,
   musicEnabled: true,
   hapticsEnabled: true,
-  showAttackLines: true,
+  showAttackLines: false,
   showConflicts: true,
   reduceMotion: false,
   theme: 'classic-royal',
@@ -72,11 +72,26 @@ export class SettingsRepository {
   constructor(private storage: StorageAdapter = defaultStorage) {}
 
   async getSettings(): Promise<GameSettings> {
+    const version = await this.storage.get<number>(STORAGE_KEYS.SCHEMA_VERSION);
     const data = await this.storage.get<GameSettings>(STORAGE_KEYS.SETTINGS);
+
+    // If upgrading to schema v2 or first launch, enforce showAttackLines defaults to false
+    if (!version || version < CURRENT_SCHEMA_VERSION) {
+      await this.storage.set(STORAGE_KEYS.SCHEMA_VERSION, CURRENT_SCHEMA_VERSION);
+      const migrated: GameSettings = {
+        ...DEFAULT_SETTINGS,
+        ...(data || {}),
+        showAttackLines: false,
+      };
+      await this.storage.set(STORAGE_KEYS.SETTINGS, migrated);
+      return migrated;
+    }
+
     return data ? { ...DEFAULT_SETTINGS, ...data } : { ...DEFAULT_SETTINGS };
   }
 
   async saveSettings(settings: GameSettings): Promise<void> {
+    await this.storage.set(STORAGE_KEYS.SCHEMA_VERSION, CURRENT_SCHEMA_VERSION);
     await this.storage.set(STORAGE_KEYS.SETTINGS, settings);
   }
 }

@@ -24,6 +24,10 @@
 | 6 | 2026-11-07 | Vitest over Jest | Jest, Testing Library | Vite-native, faster, ESM support, compatible with TypeScript out of the box |
 | 7 | 2026-11-07 | Bitmask solver as primary | Simple array solver | O(1) conflict checking per placement, critical for N>12 performance |
 | 8 | 2026-11-07 | `--legacy-peer-deps` for Vitest install | Upgrade @types/node | Vitest 5.x wants @types/node ≥22, but Next.js 16.x pin keeps ^20; peer dep is optional so this is safe |
+| 9 | 2026-11-08 | Expo SDK 58 for Mobile App | Bare React Native, Expo SDK 51 | Aligns React 19.3.0 across both web and mobile, modern Hermes engine, zero native build overhead |
+| 10 | 2026-11-08 | Direct Symlinking of `core/`, `config/`, and `types/` | Code duplication, npm package publish | 100% zero code duplication; edits in web-app immediately take effect in mobile-app with Metro `unstable_enableSymlinks` |
+| 11 | 2026-11-08 | In-memory PCM WAV synthesis for native audio | Bundling raw mp3 files | Zero-asset dependency, offline readiness, deterministic tone pitches matching web synthesizer |
+| 12 | 2026-11-08 | `react-native-reanimated` for 3D buttons & modals | React Native Animated, CSS animations | Runs purely on the native UI thread, guaranteeing 60fps zero-stutter press sink-down and spring transitions |
 
 ---
 

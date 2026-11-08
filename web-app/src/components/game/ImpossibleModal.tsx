@@ -36,7 +36,7 @@ export const ImpossibleModal: React.FC<ImpossibleModalProps> = ({ n, isOpen, onC
     <GameModal
       isOpen={isOpen}
       onClose={onClose}
-      title={`⚔️ Impossible Challenge (N=${n})`}
+      title={`Impossible Challenge (N=${n})`}
     >
       <div className="flex flex-col gap-4 text-center mt-2">
         <p className="text-purple-200 text-sm leading-relaxed">

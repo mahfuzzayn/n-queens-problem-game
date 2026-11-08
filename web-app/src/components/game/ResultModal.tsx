@@ -3,6 +3,7 @@ import { useGameStore } from '@/store';
 import { GameModal } from '../ui/GameModal';
 import { GameButton } from '../ui/GameButton';
 import { StarRating } from '../ui/StarRating';
+import { GameIcon } from '../ui/GameIcon';
 
 export const ResultModal: React.FC = () => {
   const { status, lastResult, resetGame, initGame, n, mode } = useGameStore();
@@ -16,7 +17,7 @@ export const ResultModal: React.FC = () => {
   return (
     <GameModal
       isOpen={isOpen}
-      title={isWon ? '🎉 VICTORY! 🎉' : '💀 TIME OVER! 💀'}
+      title={isWon ? 'VICTORY!' : 'TIME OVER!'}
     >
       <div className="flex flex-col items-center gap-4 text-center mt-2">
         {isWon && lastResult && (
@@ -41,8 +42,9 @@ export const ResultModal: React.FC = () => {
                 <span className="text-emerald-400 font-bold">{lastResult.moves}</span>
               </div>
               {lastResult.isPerfect && (
-                <div className="text-xs font-bold text-amber-300 bg-amber-900/40 py-1 rounded-lg border border-amber-500/30">
-                  ✨ Perfect Run: No Hints & No Conflicts!
+                <div className="flex items-center justify-center gap-1.5 text-xs font-bold text-amber-300 bg-amber-900/40 py-1.5 rounded-lg border border-amber-500/30">
+                  <GameIcon name="sparkles" size={14} color="#fcd34d" />
+                  <span>Perfect Run: No Hints & No Conflicts!</span>
                 </div>
               )}
             </div>

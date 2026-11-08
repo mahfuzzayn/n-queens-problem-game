@@ -1,5 +1,6 @@
 import React from 'react';
 import { Queen } from './Queen';
+import { GameIcon } from '../ui/GameIcon';
 
 export interface CellProps {
   row: number;
@@ -25,7 +26,7 @@ export const Cell: React.FC<CellProps> = React.memo(
     isBlocked,
     isHintTarget,
     onClick,
-    showAttackLines = true,
+    showAttackLines = false,
   }) => {
     const isDark = (row + col) % 2 === 1;
 
@@ -60,7 +61,7 @@ export const Cell: React.FC<CellProps> = React.memo(
 
         {/* Blocked Icon */}
         {isBlocked && (
-          <span className="text-xl sm:text-2xl text-stone-500">🪨</span>
+          <GameIcon name="rock" size={20} color="#a8a29e" />
         )}
 
         {/* Queen Graphic */}
@@ -72,7 +73,9 @@ export const Cell: React.FC<CellProps> = React.memo(
 
         {/* Locked Badge */}
         {isLocked && hasQueen && (
-          <div className="absolute top-1 right-1 text-xs">🔒</div>
+          <div className="absolute top-1 right-1 drop-shadow">
+            <GameIcon name="lock" size={13} color="#facc15" />
+          </div>
         )}
       </button>
     );
